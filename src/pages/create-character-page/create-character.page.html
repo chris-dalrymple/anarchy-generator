@@ -1,0 +1,35 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Create Character</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-item>
+        <ion-label>Name</ion-label>
+          <ion-input type="text" [(ngModel)]="character.name"></ion-input>  
+    </ion-item>
+    <ion-item>
+        <ion-label>STR</ion-label>
+        <ion-label>AGI</ion-label>
+        <ion-label>WIL</ion-label>
+        <ion-label>LOG</ion-label>
+        <ion-label>CHA</ion-label>
+        <ion-label>EDG</ion-label>
+    </ion-item>
+    <ion-item>
+        <!-- <ion-numeric item-content displayFormat="xx" [(ngModel)]="myNumber" min="1" max="30"></ion-numeric> -->
+        <ion-input type="number" max="10" min="0" step="1" [(ngModel)]="character.strength"></ion-input>  
+        <ion-input type="number" max="10" min="0" step="1" [(ngModel)]="character.agility"></ion-input>  
+        <ion-input type="number" max="10" min="0" step="1" [(ngModel)]="character.willpower"></ion-input>
+        <ion-input type="number" max="10" min="0" step="1" [(ngModel)]="character.logic"></ion-input>
+        <ion-input type="number" max="10" min="0" step="1" [(ngModel)]="character.charisma"></ion-input>
+        <ion-input type="number" max="10" min="0" step="1" [(ngModel)]="character.edge"></ion-input> 
+    </ion-item>
+    <ion-item>
+        <button ion-button (click)="saveCharacter()">Save</button>
+    </ion-item>
+</ion-content>

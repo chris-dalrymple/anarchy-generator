@@ -8,6 +8,11 @@
 
   <ion-navbar>
     <ion-title>Characters</ion-title>
+    <ion-buttons start>
+      <button ion-button icon-only (click)="createCharacter()">
+        <ion-icon name="person-add" clear></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 
 </ion-header>
@@ -19,7 +24,8 @@
 </ion-content>
 <ion-content padding *ngIf="pageView === pageObject.LIST">
   <ion-list>
-    <button ion-item *ngFor="let character of characterList">
+    <button ion-item *ngFor="let character of characterList" 
+            (click)="chooseCharacter(character)">
       {{character}}
     </button>
   </ion-list>

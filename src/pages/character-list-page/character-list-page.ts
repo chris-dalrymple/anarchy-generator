@@ -52,4 +52,7 @@ export class CharacterListPage {
     this.navCtrl.push(CreateCharacterPage);
   }
 
+  chooseCharacter(name: string) {
+    console.log('Character key = ' + name);
+  }
 }

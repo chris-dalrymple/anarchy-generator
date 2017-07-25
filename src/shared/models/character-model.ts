@@ -1,5 +1,6 @@
 export class CharacterModel {
     public name: string = '';
+    public metatype: string = '';
     // basic attributes
     public strength: number = 0;
     public agility: number = 0;

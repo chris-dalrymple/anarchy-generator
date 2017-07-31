@@ -1,18 +1,115 @@
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color="primary">
     <ion-title>Create Character</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
-    <ion-item>
-        <ion-label>Name</ion-label>
-          <ion-input type="text" [(ngModel)]="character.name"></ion-input>  
-    </ion-item>
-    <ion-item>
+<ion-content>
+    <ion-item-group>
+        <ion-item-divider color="light">
+            Info
+        </ion-item-divider>
+        <ion-item>
+            <ion-label>Name</ion-label>
+            <ion-input type="text" [(ngModel)]="character.name"></ion-input>  
+        </ion-item>
+        <ion-item>
+            <ion-label>Metatype</ion-label>
+            <ion-select [(ngModel)]="character.metatype">
+                <ion-option>Human</ion-option>
+                <ion-option>Elf</ion-option>
+                <ion-option>Dwarf</ion-option>
+                <ion-option>Ork</ion-option>
+                <ion-option>Troll</ion-option>
+            </ion-select>
+        </ion-item>
+        <button ion-item>Dispositions</button>
+    </ion-item-group>
+    <ion-item-group>
+        <ion-item-divider color="light">
+            Attributes
+        </ion-item-divider>
+        <ion-item>
+            <ion-label>Strength</ion-label>
+            <ion-input type="number" max="10" min="0" step="1" [(ngModel)]="character.strength"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label>Agility</ion-label>
+            <ion-input type="number" max="10" min="0" step="1" [(ngModel)]="character.agility"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label>Willpower</ion-label>
+            <ion-input type="number" max="10" min="0" step="1" [(ngModel)]="character.willpower"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label>Logic</ion-label>
+            <ion-input type="number" max="10" min="0" step="1" [(ngModel)]="character.logic"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label>Charisma</ion-label>
+            <ion-input type="number" max="10" min="0" step="1" [(ngModel)]="character.charisma"></ion-input>
+        </ion-item>
+    </ion-item-group>
+    <ion-item-group>
+        <ion-item-divider color="light">
+            Skills
+            <button ion-button item-end icon-only outline color="dark">
+                <ion-icon name="add" color="dark"></ion-icon>
+            </button>
+        </ion-item-divider>
+    </ion-item-group>
+    <ion-item-group>
+        <ion-item-divider color="light">
+            Shadow Amps
+            <button ion-button item-end icon-only outline color="dark">
+                <ion-icon name="add" color="dark"></ion-icon>
+            </button>
+        </ion-item-divider>
+    </ion-item-group>
+    <ion-item-group>
+        <ion-item-divider color="light">
+            Cues
+            <button ion-button item-end icon-only outline color="dark">
+                <ion-icon name="add" color="dark"></ion-icon>
+            </button>
+        </ion-item-divider>
+    </ion-item-group>
+    <ion-item-group>
+        <ion-item-divider color="light">
+            Qualities
+            <button ion-button item-end icon-only outline color="dark">
+                <ion-icon name="add" color="dark"></ion-icon>
+            </button>
+        </ion-item-divider>
+    </ion-item-group>
+    <ion-item-group>
+        <ion-item-divider color="light">
+            Weapons
+            <button ion-button item-end icon-only outline color="dark">
+                <ion-icon name="add" color="dark"></ion-icon>
+            </button>
+        </ion-item-divider>
+    </ion-item-group>
+    <ion-item-group>
+        <ion-item-divider color="light">
+            Armor
+            <button ion-button item-end icon-only outline color="dark">
+                <ion-icon name="add" color="dark"></ion-icon>
+            </button>
+        </ion-item-divider>
+    </ion-item-group>
+    <ion-item-group>
+        <ion-item-divider color="light">
+            Gear
+            <button ion-button item-end icon-only outline color="dark">
+                <ion-icon name="add" color="dark"></ion-icon>
+            </button>
+        </ion-item-divider>
+    </ion-item-group>
+    <!-- <ion-item>
         <ion-label>STR</ion-label>
         <ion-label>AGI</ion-label>
         <ion-label>WIL</ion-label>
@@ -22,14 +119,14 @@
     </ion-item>
     <ion-item>
         <!-- <ion-numeric item-content displayFormat="xx" [(ngModel)]="myNumber" min="1" max="30"></ion-numeric> -->
-        <ion-input type="number" max="10" min="0" step="1" [(ngModel)]="character.strength"></ion-input>  
+        <!-- <ion-input type="number" max="10" min="0" step="1" [(ngModel)]="character.strength"></ion-input>  
         <ion-input type="number" max="10" min="0" step="1" [(ngModel)]="character.agility"></ion-input>  
         <ion-input type="number" max="10" min="0" step="1" [(ngModel)]="character.willpower"></ion-input>
         <ion-input type="number" max="10" min="0" step="1" [(ngModel)]="character.logic"></ion-input>
         <ion-input type="number" max="10" min="0" step="1" [(ngModel)]="character.charisma"></ion-input>
         <ion-input type="number" max="10" min="0" step="1" [(ngModel)]="character.edge"></ion-input> 
-    </ion-item>
-    <ion-item>
+    </ion-item> -->
+    <!-- <ion-item> -->
         <button ion-button (click)="saveCharacter()">Save</button>
-    </ion-item>
+    <!-- </ion-item> -->
 </ion-content>

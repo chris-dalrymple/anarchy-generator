@@ -1,6 +1,14 @@
+export class MetaType {
+    public static human: 0;
+    public static elf: 1;
+    public static dwarf: 2;
+    public static ork: 3;
+    public static troll: 4;
+}
+
 export class CharacterModel {
     public name: string = '';
-    public metatype: string = '';
+    public metatype: MetaType = MetaType.human;
     // basic attributes
     public strength: number = 0;
     public agility: number = 0;
@@ -14,6 +22,7 @@ export class CharacterModel {
     public awakened: boolean = false;
     public dispositions: string[] = [];
     public cues: string[] = [];
+    public weapons: any[] = [];
     public karmaTotal: number = 0;
     public karmaBalance: number = 0;
 }

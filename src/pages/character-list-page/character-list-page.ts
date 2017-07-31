@@ -32,11 +32,10 @@ export class CharacterListPage {
               public storage: LocalStorageService) {
   }
 
-  ionViewDidLoad() {
+  ionViewDidEnter() {
     this.storage.getCharacterList().then((results) => {
       // this.characterList = new Array(results.length);
       this.characterList = results;
-      console.log(results);
     }).catch((err) => {
       console.error(err);
     });

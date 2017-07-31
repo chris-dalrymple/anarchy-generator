@@ -18,15 +18,17 @@
 </ion-header>
 
 
-<ion-content padding *ngIf="pageView === pageObject.EMPTY">
-  <p>Create a character.</p>
-  <button ion-button (click)="createCharacter()">Create Character</button>
-</ion-content>
-<ion-content padding *ngIf="pageView === pageObject.LIST">
-  <ion-list>
-    <button ion-item *ngFor="let character of characterList" 
+<ion-content padding>
+  <div *ngIf="pageView === pageObject.EMPTY">
+    <p>Create a character.</p>
+    <button ion-button (click)="createCharacter()">Create Character</button>
+  </div>
+  <div *ngIf="pageView === pageObject.LIST">
+    <ion-list>
+      <button ion-item *ngFor="let character of characterList" 
             (click)="chooseCharacter(character)">
-      {{character}}
-    </button>
-  </ion-list>
+        {{character}}
+      </button>
+    </ion-list>
+  </div>
 </ion-content>

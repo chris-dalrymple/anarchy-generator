@@ -10,12 +10,12 @@ export class CharacterModel {
     public name: string = '';
     public metatype: MetaType = MetaType.human;
     // basic attributes
-    public strength: number = 0;
-    public agility: number = 0;
-    public willpower: number = 0;
-    public logic: number = 0;
-    public charisma: number = 0;
-    public edge: number = 0;
+    public strength: number = 1;
+    public agility: number = 1;
+    public willpower: number = 1;
+    public logic: number = 1;
+    public charisma: number = 1;
+    public edge: number = 1;
     public essence: number = 6;
     // special qualities
     public emerged: boolean = false;

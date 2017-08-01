@@ -2,7 +2,9 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
 import { CharacterModel } from '../../shared/models/character-model';
+import { MetaTypeModel } from '../../shared/models/metatype.model';
 import { LocalStorageService } from '../../shared/services/local-storage-service';
+import { MetaTypeEnum } from '../../shared/enums/metatype.enum';
 
 @Component({
   selector: 'create-character-page',
@@ -10,6 +12,7 @@ import { LocalStorageService } from '../../shared/services/local-storage-service
 })
 export class CreateCharacterPage {
   public character: CharacterModel = new CharacterModel();
+  public metaType: MetaTypeModel = new MetaTypeModel(MetaTypeEnum.human);
   public myNumber: any = 22;
 
   constructor(public navCtrl: NavController,
@@ -25,7 +28,12 @@ export class CreateCharacterPage {
     // this.character.logic = 0;
     // this.character.charisma = 0;
     // this.character.edge = 0;
+    this.setMetaType();
+  }
 
+  setMetaType() {
+    console.log('Setting value = ' + this.character.metatype);
+    this.metaType = new MetaTypeModel(this.character.metatype);
   }
 
   saveCharacter() {

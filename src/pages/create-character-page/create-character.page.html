@@ -18,12 +18,12 @@
         </ion-item>
         <ion-item>
             <ion-label>Metatype</ion-label>
-            <ion-select [(ngModel)]="character.metatype">
-                <ion-option value="MetaTypeEnum.human" selected>Human</ion-option>
-                <ion-option value="MetaTypeEnum.elf">Elf</ion-option>
-                <ion-option value="MetaTypeEnum.dwarf">Dwarf</ion-option>
-                <ion-option value="MetaTypeEnum.ork">Ork</ion-option>
-                <ion-option value="MetaTypeEnum.troll">Troll</ion-option>
+            <ion-select [(ngModel)]="character.metatype" (ionChange)="setMetaType($event)">
+                <ion-option value="0" selected>Human</ion-option>
+                <ion-option value="1">Elf</ion-option>
+                <ion-option value="2">Dwarf</ion-option>
+                <ion-option value="3">Ork</ion-option>
+                <ion-option value="4">Troll</ion-option>
             </ion-select>
         </ion-item>
         <button ion-item>Dispositions</button>
@@ -34,11 +34,11 @@
         </ion-item-divider>
         <ion-item>
             <ion-label>Strength</ion-label>
-            <ion-input type="number" [max]="metaType.strengthMax" min="{{metaType.strengthMin}}" step="1" [(ngModel)]="character.strength"></ion-input>
+            <ion-input type="number" [max]="metaType.strengthMax" [min]="metaType.strengthMin" step="1" [(ngModel)]="character.strength"></ion-input>
         </ion-item>
         <ion-item>
             <ion-label>Agility</ion-label>
-            <ion-input type="number" max="{{metaType.agilityMax}}" min="{{metaType.agilityMin}}" step="1" [(ngModel)]="character.agility"></ion-input>
+            <ion-input type="number" [max]="metaType.agilityMax" [min]="metaType.agilityMin" step="1" [(ngModel)]="character.agility"></ion-input>
         </ion-item>
         <ion-item>
             <ion-label>Willpower</ion-label>

@@ -22,6 +22,19 @@ export class MetaTypeModel {
     public setMetaType(type: number) {
         console.log(typeof(type));
         type = Number(type);
+        this.strengthMax = 6;
+        this.agilityMax = 6;
+        this.willpowerMax = 6;
+        this.logicMax = 6;
+        this.charismaMax = 6;
+        this.edgeMax = 6;
+        
+        this.strengthMin = 1;
+        this.agilityMin = 1;
+        this.willpowerMin = 1;
+        this.logicMin = 1;
+        this.charismaMin = 1;
+        this.edgeMin = 1;
         if (type === MetaTypeEnum.elf) {
             console.log('here');
             this.agilityMax = 7;

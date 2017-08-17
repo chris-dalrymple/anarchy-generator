@@ -4,6 +4,8 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { IonicStorageModule } from '@ionic/storage';
+import { SQLitePorter } from '@ionic-native/sqlite-porter';
+import { SQLite } from '@ionic-native/sqlite';
 
 import { NumericModule } from 'ionic2-numericpicker';
 
@@ -38,7 +40,9 @@ import { LocalStorageService } from '../shared/services/local-storage-service';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    LocalStorageService
+    LocalStorageService,
+    SQLitePorter,
+    SQLite
   ]
 })
 export class AppModule {}

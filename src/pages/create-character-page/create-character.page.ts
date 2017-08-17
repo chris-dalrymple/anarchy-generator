@@ -14,6 +14,7 @@ export class CreateCharacterPage {
   public character: CharacterModel = new CharacterModel();
   public metaType: MetaTypeModel = new MetaTypeModel(MetaTypeEnum.human);
   public myNumber: any = 22;
+  public skills: any[] = [];
 
   // public buttonHandler = {
   //   title: 'Pizza Toppings',
@@ -40,6 +41,7 @@ export class CreateCharacterPage {
     // this.character.charisma = 0;
     // this.character.edge = 0;
     // this.setMetaType();
+    this.skills = localStorage.getSkillList();
   }
 
   setMetaType(selectedValue: number) {

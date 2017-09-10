@@ -61,7 +61,9 @@ export class LocalStorageService {
 
     // Character storage
     addCharacter(character: CharacterModel) {
-        this.storage.set(character.name, JSON.stringify(character));
+        // this.storage.set(character.name, JSON.stringify(character));
+        let data = JSON.stringify(character);
+        return this.db.executeSql('INSERT INTO characters(name, json) VALUES (?,?)', [character.name, data]);
     }
 
     removeCharacter(characterId) {
@@ -73,7 +75,19 @@ export class LocalStorageService {
     }
 
     getCharacterList() {
-        return Promise.resolve();
+        return this.db.executeSql("SELECT * FROM characters", []).then((data) => {
+            let characters = [];
+            if (data.rows.length > 0) {
+                for (let i = 0; i < data.rows.length; i++) {
+                    characters.push(JSON.parse(data.rows.item(i).json));
+                }
+            }
+            return characters;
+        }, err => {
+            console.log('Error: ', err);
+            return [];
+        });
+        // return Promise.resolve();
         // return this.storage.keys();
     }
 

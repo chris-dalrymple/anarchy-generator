@@ -1,3 +1,4 @@
+CREATE TABLE IF NOT EXISTS characters(id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, json TEXT);
 CREATE TABLE IF NOT EXISTS skills(id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, description TEXT, rating INTEGER, attribute INTEGER);
 INSERT INTO skills(name, description, rating, attribute) VALUES ('Athletics', 
     'Running, jumping, swimming and acrobatics.', 1, 1);

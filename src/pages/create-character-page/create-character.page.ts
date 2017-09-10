@@ -56,8 +56,11 @@ export class CreateCharacterPage {
   }
 
   saveCharacter() {
-    this.storageService.addCharacter(this.character);
-    this.navCtrl.pop();
+    this.storageService.addCharacter(this.character).then(() => {
+      this.navCtrl.pop();
+    }).catch((err) => {
+      console.log(err.message);
+    });
   }
 
   getSkillPopup() {

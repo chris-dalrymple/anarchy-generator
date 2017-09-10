@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { AlertController, NavController, NavParams } from 'ionic-angular';
 
 import { CharacterModel } from '../../shared/models/character-model';
 import { MetaTypeModel } from '../../shared/models/metatype.model';
 import { LocalStorageService } from '../../shared/services/local-storage-service';
 import { MetaTypeEnum } from '../../shared/enums/metatype.enum';
+import { openSkillSelect } from '../../shared/components/skill-select.alert';
 
 @Component({
   selector: 'create-character-page',
@@ -29,6 +30,7 @@ export class CreateCharacterPage {
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
+              public AlertCtrl: AlertController,
               public storageService: LocalStorageService) {}
 
   ionViewDidLoad() {
@@ -54,6 +56,33 @@ export class CreateCharacterPage {
   saveCharacter() {
     this.storageService.addCharacter(this.character);
     this.navCtrl.pop();
+  }
+
+  getSkillPopup() {
+    openSkillSelect(this.AlertCtrl, this.skills);
+  }
+
+  openSkillSelect() {
+    let skillAlert = this.AlertCtrl.create();
+    skillAlert.setTitle('Select Skills');
+
+    for (let i = 0; i < this.skills.length; i++) {
+        skillAlert.addInput({
+            type: 'checkbox',
+            label: this.skills[i].name,
+            value: this.skills[i].id
+        });
+    }
+
+    skillAlert.addButton('Cancel');
+    skillAlert.addButton({
+        text: 'Select',
+        handler: data => {
+            console.log('Checkbox data:', data);
+        }
+    });
+
+    skillAlert.present();
   }
 
   private checkCharacterData() {

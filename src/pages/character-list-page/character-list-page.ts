@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
-import { CharacterModel } from '../../shared/models/character-model';
 import { CreateCharacterPage } from '../create-character-page/create-character.page';
 import { LocalStorageService } from '../../shared/services/local-storage-service';
 
@@ -35,7 +34,8 @@ export class CharacterListPage {
   ionViewDidEnter() {
     this.storage.getCharacterList().then((results) => {
       // this.characterList = new Array(results.length);
-      this.characterList = results;
+      // this.characterList = results;
+      this.characterList = [];
     }).catch((err) => {
       console.error(err);
     });

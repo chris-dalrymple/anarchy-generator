@@ -68,7 +68,8 @@ export class LocalStorageService {
     }
 
     getCharacterList() {
-        return this.storage.keys();
+        return Promise.resolve();
+        // return this.storage.keys();
     }
 
     // Skill storage

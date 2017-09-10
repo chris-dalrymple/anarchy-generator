@@ -56,12 +56,13 @@
     <ion-item-group>
         <ion-item-divider color="light">
             Skills
-            <button ion-button item-end icon-only outline color="dark">
+            <button ion-button item-end icon-only outline color="dark" (click)="openSkillSelect()">
                 <ion-icon name="add" color="dark"></ion-icon>
             </button>
         </ion-item-divider>
-        <!-- <ion-item *ngFor="let skill of skills">
-            <ion-label>skill.name</ion-label> -->
+        <ion-item *ngFor="let skill of character.skillList">
+            <ion-label>skill.name</ion-label>
+        </ion-item>
     </ion-item-group>
     <ion-item-group>
         <ion-item-divider color="light">

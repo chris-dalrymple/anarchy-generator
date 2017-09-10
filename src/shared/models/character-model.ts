@@ -1,3 +1,5 @@
+import { SkillModel } from './skill.model';
+
 export class MetaType {
     public static human: 0;
     public static elf: 1;
@@ -25,4 +27,5 @@ export class CharacterModel {
     public weapons: any[] = [];
     public karmaTotal: number = 0;
     public karmaBalance: number = 0;
+    public skillList: SkillModel[] = [];
 }

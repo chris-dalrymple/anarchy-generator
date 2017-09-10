@@ -38,11 +38,16 @@ export class LocalStorageService {
     }
 
     initDatabase() {
-        this.http.get('assets/').map(res => res.text()).subscribe(sql => {
+        this.http.get('../../assets/databaseDump.sql').map(res => res.text()).subscribe(sql => {
+            // console.log('Attempting database init.');
             this.sqlitePorter.importSqlToDb(this.db, sql).then((data) => {
+                // console.log('Sql data imported.');
                 this.databaseReady.next(true);
                 this.storage.set('database_filled', true);
-            }).catch(e => console.error(e));
+            }).catch(e => {
+                // console.log('Error on database init.');
+                console.error(e);
+            });
         });
     }
 
@@ -86,11 +91,12 @@ export class LocalStorageService {
     }
 
     getSkillList() {
-        return this.db.executeSql("SELECT * FROM skill_table", []).then((data) => {
+        return this.db.executeSql("SELECT * FROM skills", []).then((data) => {
             let skills = [];
             if (data.rows.length > 0) {
                 for (let i = 0; i < data.rows.length; i++) {
                     skills.push({
+                        id: data.rows.item(i).id,
                         name: data.rows.item(i).name,
                         desc: data.rows.item(i).description,
                         rating: data.rows.item(i).rating,
@@ -100,6 +106,7 @@ export class LocalStorageService {
             }
             return skills;
         }, err => {
+            console.error(err);
             console.log('Error: ', err);
             return [];
         });

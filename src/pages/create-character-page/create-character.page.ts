@@ -43,7 +43,9 @@ export class CreateCharacterPage {
     // this.character.charisma = 0;
     // this.character.edge = 0;
     // this.setMetaType();
-    this.skills = localStorage.getSkillList();
+    this.storageService.getSkillList().then(list => {
+      this.skills = list;
+    });
   }
 
   setMetaType(selectedValue: number) {
@@ -77,8 +79,15 @@ export class CreateCharacterPage {
     skillAlert.addButton('Cancel');
     skillAlert.addButton({
         text: 'Select',
-        handler: data => {
-            console.log('Checkbox data:', data);
+        handler: (data) => {
+          for (let i = 0; i < data.length; i++) {
+            for (let j = 0; j < this.skills.length; j++) {
+              if (data[i] === this.skills[j].id) {
+                this.character.skillList.push(this.skills[j]);
+                break;
+              }
+            }
+          }
         }
     });
 
